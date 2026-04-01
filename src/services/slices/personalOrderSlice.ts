@@ -1,20 +1,20 @@
 import { TOrder } from '@utils-types';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getOrderByNumberApi, getOrdersApi, orderBurgerApi } from '@api';
+import { getOrdersApi } from '@api';
 
 export interface IOrder {
-  order: TOrder[] | null;
+  order: TOrder[];
   isLoading: boolean;
   error: string | undefined;
 }
 
 const initialState: IOrder = {
-  order: null,
+  order: [],
   isLoading: false,
   error: undefined
 };
 
-const personalOrder = createAsyncThunk('order/personal', async () => {
+export const personalOrder = createAsyncThunk('order/personal', async () => {
   const data = await getOrdersApi();
   return data;
 });
@@ -39,9 +39,7 @@ const personalOrderSlice = createSlice({
       });
   },
   selectors: {
-    getPersonalOrder: (state) => {
-      state.order;
-    }
+    getPersonalOrder: (state) => state.order
   }
 });
 

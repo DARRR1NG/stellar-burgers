@@ -23,7 +23,7 @@ const initialState: IUser = {
   error: undefined
 };
 
-const login = createAsyncThunk(
+export const login = createAsyncThunk(
   'user/login',
   async (loginData: { email: string; password: string }) => {
     const data = await loginUserApi(loginData);
@@ -33,7 +33,7 @@ const login = createAsyncThunk(
   }
 );
 
-const registration = createAsyncThunk(
+export const registration = createAsyncThunk(
   'user/registration',
   async (registerData: { email: string; name: string; password: string }) => {
     const data = await registerUserApi(registerData);
@@ -43,7 +43,7 @@ const registration = createAsyncThunk(
   }
 );
 
-const edit = createAsyncThunk(
+export const edit = createAsyncThunk(
   'user/edit',
   async (registerData: { email: string; name: string; password: string }) => {
     const data = await updateUserApi(registerData);
@@ -56,7 +56,7 @@ export const getDataUser = createAsyncThunk('user/getDataUser', async () => {
   return data;
 });
 
-const exit = createAsyncThunk('user/exit', async () => {
+export const exit = createAsyncThunk('user/exit', async () => {
   const data = await logoutApi();
   deleteCookie('accessToken');
   localStorage.removeItem('refreshToken');

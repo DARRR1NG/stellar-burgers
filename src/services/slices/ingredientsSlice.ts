@@ -14,7 +14,7 @@ const initialState: IIngredientsFull = {
   error: undefined
 };
 
-export const getIng = createAsyncThunk('ingredients/get', async () => {
+export const getIng = createAsyncThunk('ingredients/getIng', async () => {
   const data = await getIngredientsApi();
   return data;
 });

@@ -33,10 +33,10 @@ const App = () => {
   };
   useEffect(() => {
     if (getCookie('accessToken')) {
-      dispatch(getDataUser);
+      dispatch(getDataUser());
     }
-    dispatch(getIng);
-    dispatch(getOrders);
+    dispatch(getIng());
+    dispatch(getOrders());
   }, [dispatch]);
 
   return (
@@ -81,7 +81,7 @@ const App = () => {
         <Route
           path='/profile'
           element={
-            <ProtectedRoute isAuth>
+            <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
           }
@@ -89,7 +89,7 @@ const App = () => {
         <Route
           path='/profile/orders'
           element={
-            <ProtectedRoute isAuth>
+            <ProtectedRoute>
               <ProfileOrders />
             </ProtectedRoute>
           }
@@ -99,7 +99,7 @@ const App = () => {
         <Route
           path='/profile/orders/:number'
           element={
-            <ProtectedRoute isAuth>
+            <ProtectedRoute>
               <OrderInfo />
             </ProtectedRoute>
           }
@@ -126,7 +126,7 @@ const App = () => {
           <Route
             path='/profile/orders/:number'
             element={
-              <ProtectedRoute isAuth>
+              <ProtectedRoute>
                 <Modal title='' onClose={close}>
                   <OrderInfo />
                 </Modal>

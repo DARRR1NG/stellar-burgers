@@ -4,7 +4,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 export interface IProtectedRouteProps {
   children: ReactElement;
-  isAuth: boolean;
+  isAuth?: boolean;
 }
 
 export const ProtectedRoute: FC<IProtectedRouteProps> = ({

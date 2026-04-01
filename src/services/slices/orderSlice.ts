@@ -1,5 +1,5 @@
 import { TOrder } from '@utils-types';
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getOrderByNumberApi, orderBurgerApi } from '@api';
 
 export interface IOrder {
@@ -24,7 +24,7 @@ export const createOrder = createAsyncThunk(
   }
 );
 
-const getNumberOrder = createAsyncThunk(
+export const getNumberOrder = createAsyncThunk(
   'order/getNumber',
   async (numberOrder: number) => {
     const data = await getOrderByNumberApi(numberOrder);
