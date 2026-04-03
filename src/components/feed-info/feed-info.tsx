@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useDispatch, useSelector } from '../../services/store';
+import { useSelector } from '../../services/store';
 import { TOrder } from '@utils-types';
 import { FeedInfoUI } from '../ui/feed-info';
 

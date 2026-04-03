@@ -30,6 +30,7 @@ export const BurgerConstructor: FC = () => {
     if (!constructorItems.bun || orderRequest) return;
     if (!isAuth) {
       navigate('/login');
+      return;
     }
     const infoOrder = [
       constructorItems.bun._id,
@@ -38,12 +39,11 @@ export const BurgerConstructor: FC = () => {
       ),
       constructorItems.bun._id
     ];
-    dispatch(createOrder(infoOrder));
+    dispatch(createOrder(infoOrder)).then(() => dispatch(clearConstructor()));
   };
 
   const closeOrderModal = () => {
     dispatch(clearOrder());
-    dispatch(clearConstructor());
   };
 
   const price = useMemo(

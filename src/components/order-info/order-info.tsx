@@ -5,6 +5,7 @@ import { TIngredient } from '@utils-types';
 import { useDispatch, useSelector } from '../../services/store';
 import { clearOrder, getNumberOrder } from '../../services/slices/orderSlice';
 import { useParams } from 'react-router-dom';
+import { clearConstructor } from '../../services/slices/burger-constructor-slice';
 
 export const OrderInfo: FC = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,9 @@ export const OrderInfo: FC = () => {
   );
 
   useEffect(() => {
-    dispatch(getNumberOrder(Number(number)));
+    if (number) {
+      dispatch(getNumberOrder(Number(number)));
+    }
 
     return () => {
       dispatch(clearOrder());
