@@ -118,7 +118,7 @@ const App = () => {
           <Route
             path='/ingredients/:id'
             element={
-              <Modal title='' onClose={close}>
+              <Modal title='Подробности ингредиента' onClose={close}>
                 <IngredientDetails />
               </Modal>
             }

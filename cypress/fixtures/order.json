@@ -1,0 +1,18 @@
+{
+    "success": true,
+    "order": {
+        "_id": "119c4b10f64176501b32d0de",
+        "ingredients": [
+            "Котлета",
+            "Соус",
+            "Котлета"
+        ],
+        "owner": "769b3fc8g69997001b32cac6",
+        "status": "done",
+        "name": "Бургер",
+        "createdAt": "2025-01-13T12:39:00.237Z",
+        "updatedAt": "2025-01-13T12:39:00.447Z",
+        "number": 1
+    },
+    "name": "Тестовый бургер"
+}

@@ -23,7 +23,7 @@ const countTotalPrice = (
   return sumIngredients + sumPriceBuns;
 };
 
-const burgerConstructorSlice = createSlice({
+export const burgerConstructorSlice = createSlice({
   name: 'BurgerConstructor',
   initialState,
   reducers: {
