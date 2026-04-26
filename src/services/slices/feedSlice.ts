@@ -1,8 +1,8 @@
-import { getFeedsApi } from '@api';
+import { getFeedsApi } from '../../utils/burger-api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
-interface IFeed {
+export interface IFeed {
   orders: TOrder[];
   total: number;
   today: number;
@@ -23,7 +23,7 @@ export const getOrders = createAsyncThunk('feed/orders', async () => {
   return data;
 });
 
-const feedSlice = createSlice({
+export const feedSlice = createSlice({
   name: 'FeedSlice',
   initialState,
   reducers: {},
@@ -45,9 +45,10 @@ const feedSlice = createSlice({
       });
   },
   selectors: {
-    getFeedOrders: (state) => state.orders
+    getFeedOrders: (state) => state.orders,
+    feedState: (state) => state
   }
 });
 
-export const { getFeedOrders } = feedSlice.selectors;
+export const { getFeedOrders, feedState } = feedSlice.selectors;
 export default feedSlice.reducer;

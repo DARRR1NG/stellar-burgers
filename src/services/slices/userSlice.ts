@@ -6,7 +6,7 @@ import {
   updateUserApi,
   getUserApi,
   logoutApi
-} from '@api';
+} from '../../utils/burger-api';
 import { setCookie, deleteCookie } from '../../utils/cookie';
 
 interface IUser {
@@ -63,7 +63,7 @@ export const exit = createAsyncThunk('user/exit', async () => {
   return data;
 });
 
-const userSlice = createSlice({
+export const userSlice = createSlice({
   name: 'User',
   initialState,
   reducers: {},
@@ -112,12 +112,8 @@ const userSlice = createSlice({
       });
   },
   selectors: {
-    getUser: (state) => {
-      state.user;
-    },
-    isAuth: (state) => {
-      state.isLogin;
-    }
+    getUser: (state) => state.user,
+    isAuth: (state) => state.isLogin
   }
 });
 

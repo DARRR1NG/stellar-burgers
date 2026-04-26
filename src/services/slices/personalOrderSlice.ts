@@ -1,6 +1,6 @@
 import { TOrder } from '@utils-types';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getOrdersApi } from '@api';
+import { getOrdersApi } from '../../utils/burger-api';
 
 export interface IOrder {
   order: TOrder[];
@@ -19,7 +19,7 @@ export const personalOrder = createAsyncThunk('order/personal', async () => {
   return data;
 });
 
-const personalOrderSlice = createSlice({
+export const personalOrderSlice = createSlice({
   name: 'Order',
   initialState,
   reducers: {},
