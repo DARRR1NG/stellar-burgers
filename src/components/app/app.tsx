@@ -36,7 +36,6 @@ const App = () => {
       dispatch(getDataUser());
     }
     dispatch(getIng());
-    dispatch(getOrders());
   }, [dispatch]);
 
   return (

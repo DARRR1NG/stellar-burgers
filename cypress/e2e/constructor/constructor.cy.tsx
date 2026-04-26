@@ -3,6 +3,9 @@ describe('Конструктор бургера', () => {
         cy.intercept("GET", `api/ingredients`, {
             fixture: "ingredients.json",
         });
+        cy.intercept('GET', `api/orders/all`, {
+            fixture: 'order.json',
+        });
         cy.visit('/');
     });
     it('Добавление ингредиента из списка ингредиентов в конструктор', () => {

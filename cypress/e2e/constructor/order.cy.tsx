@@ -16,7 +16,7 @@ describe('Создание заказа', () => {
         cy.get("[data-cy=ingredient]").should("have.length", 3);
     });
 
-    it("Тестирование оформления заказа после авторизации", () => {
+    it("Тест оформления заказа после авторизации", () => {
         cy.intercept('GET', `api/auth/user`, { fixture: 'login.json' }).as('getUser');
         cy.intercept('POST', `api/orders`, { fixture: 'order.json' }).as('postOrder');
 
@@ -33,9 +33,9 @@ describe('Создание заказа', () => {
         cy.wait('@postOrder');
 
         cy.get("[data-cy=modal-info]").should("exist");
-        cy.get("h2").contains("1").should("exist");
+        cy.get("[data-cy=modal-info]").find("h2").contains("1").should("exist");
 
-        cy.get("[data-cy=close]").click();
+        cy.get("[data-cy=modal-info]").find("[data-cy=close]").click();
         cy.get("[data-cy=modal-info]").should("not.exist");
 
         cy.get("[data-cy=bun-top]").should("not.exist");
